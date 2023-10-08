@@ -8,6 +8,24 @@ function checkInternetStatus(){
     statusText.textContent = 'Checking...'
 
     if(navigator.onLine){
+        fetch('https://api.ipify.org/?format=json')
+        .then((response)=> response.json())
+        .then((data)=> {
+
+            ipAddressText.textContent = data.ip;
+            statusText.textContent = 'connected'
+
+            const connection = navigator.connection;
+            const networkStrength = connection?connection.downlink + 'Mbps': 'Unknwn'
+            networkStrengthText.textContent = networkStrength;
+
+        })
+        .catch(()=> {
+            statusText.textContent = 'Disconnected'
+            ipAddressText.textContent = '-'
+            networkStrengthText.textContent = '-'
+        })
+
         
 
     }
