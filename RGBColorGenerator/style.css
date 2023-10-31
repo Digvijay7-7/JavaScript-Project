@@ -33,7 +33,7 @@ body{
     height: 200px;
     margin-bottom: 20px;
     border-radius: 4px;
-    border-color: #333;
+    background-color: #333;
 }
 
 .sliders{
